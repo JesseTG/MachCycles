@@ -34,12 +34,35 @@ public final class Entities {
     /** No touchey */
     private Entities() {}
 
+    /**
+     * Given a {@link FileHandle} with a {@link FileType} of {@code Internal},
+     * create an {@link Entity}
+     * 
+     * @param file
+     * @return
+     */
     public static Entity createEntityFromFile(FileHandle file) {
         return create_entity(file, true);
     }
 
+    /**
+     * Given a path that represents an internal {@link FileHandle}, create an
+     * Entity.
+     * 
+     * @param path The internal path
+     * @return The Entity
+     */
     public static Entity createEntityFromFile(String path) {
         return create_entity(Gdx.files.internal(path), true);
+    }
+    
+    /**
+     * Given only the name of an entity file (not including the extension), get the actual path
+     * @param name
+     * @return
+     */
+    public static String getEntityPath(String name) {
+        return "entity/" + name + ".json";
     }
 
     private static Entity create_entity(FileHandle file, boolean activate) {
@@ -118,7 +141,7 @@ public final class Entities {
         if (components != null) {
             for (JsonValue j = components; j != null; j = j.next()) {
                 try {
-                    Class<? extends Component> cls = ClassReflection.forName("com.corundumgames.gravv.components."
+                    Class<? extends Component> cls = ClassReflection.forName("com.corundumgames.mach.components."
                             + j.name);
                     json.fromJson(cls, j.toString());
                 }
@@ -140,9 +163,5 @@ public final class Entities {
          */
 
         return entity;
-    }
-
-    public static String getEntityPath(String name) {
-        return "entity/" + name + ".json";
     }
 }

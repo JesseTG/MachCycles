@@ -36,7 +36,6 @@ public class JsonLoader extends
     @Override
     public Array<AssetDescriptor> getDependencies(String fileName, FileHandle file,
             JsonParameters parameter) {
-        // TODO Auto-generated method stub
         return null;
     }
 
