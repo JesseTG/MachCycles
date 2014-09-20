@@ -1,0 +1,19 @@
+{
+    "components" : {
+        "CollisionComponent" : {
+        },
+        "TransformComponent" : {
+            
+        },
+        "TextureComponent" : {
+            "region" : "mach"
+        },
+        "VelocityComponent" : {
+            "x" : 1,
+            "y" : 1
+        },
+        "MachComponent" : {
+            
+        }
+    }
+}
