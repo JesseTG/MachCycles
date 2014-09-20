@@ -1,4 +1,4 @@
-package com.corundumgames.mach.desktop;
+package com.corundumgames.mach.desktop.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;

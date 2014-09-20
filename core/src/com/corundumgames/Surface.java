@@ -1,7 +1,8 @@
-package com.corundumgames.mach.desktop;
+package com.corundumgames;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
+import com.corundumgames.mach.desktop.screens.Play;
 
 public class Surface extends Game{
 
