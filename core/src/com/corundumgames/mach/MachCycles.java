@@ -8,7 +8,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.corundumgames.mach.screens.InGameScreen;
 
 public class MachCycles extends Game {
-    @Override
+    public static final int FPS = 0;
+
+	@Override
     public void create() {
         this.setScreen(new InGameScreen());
     }
