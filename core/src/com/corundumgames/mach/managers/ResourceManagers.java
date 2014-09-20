@@ -22,12 +22,10 @@ public final class ResourceManagers {
 
     public static class CameraManager extends Manager {
         public final OrthographicCamera worldCamera;
-        public final OrthographicCamera wallCamera;
         public final OrthographicCamera guiCamera;
 
-        public CameraManager(OrthographicCamera worldCamera, OrthographicCamera wallCamera, OrthographicCamera guiCamera) {
+        public CameraManager(OrthographicCamera worldCamera, OrthographicCamera guiCamera) {
             this.worldCamera = worldCamera;
-            this.wallCamera = wallCamera;
             this.guiCamera = guiCamera;
         }
     }
