@@ -2,6 +2,8 @@ package com.corundumgames.mach;
 
 import net.dermetfan.utils.libgdx.AnnotationAssetManager;
 
+import Screens.Splash;
+import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
@@ -37,13 +39,12 @@ public class MachCycles extends Game {
         this.gameCamera = new OrthographicCamera();
         this.guiCamera = new OrthographicCamera();
         Entities.setAssetManager(this.assets);
-        
 
         this.assets.finishLoading();
         Gdx.gl.glClearColor(0, 0, 0, 1);
         this.setScreen(new InGameScreen(this));
     }
-    
+
     @Override
     public void resize(int width, int height) {
         this.gameCamera.setToOrtho(false, width, height);
