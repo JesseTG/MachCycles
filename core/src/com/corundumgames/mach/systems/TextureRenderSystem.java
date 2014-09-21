@@ -16,9 +16,6 @@ import com.corundumgames.mach.managers.ResourceManagers.CameraManager;
 import com.corundumgames.mach.managers.ResourceManagers.RenderingManager;
 
 public class TextureRenderSystem extends IntervalEntityProcessingSystem {
-    private static final Aspect ASPECT = Aspect.getAspectForAll(TextureComponent.class, TransformComponent.class)
-            .exclude(BackgroundComponent.class);
-
     @Wire
     private ComponentMapper<TextureComponent> textureMapper;
 
@@ -81,5 +78,6 @@ public class TextureRenderSystem extends IntervalEntityProcessingSystem {
                     angle
                     );
         }
+
     }
 }

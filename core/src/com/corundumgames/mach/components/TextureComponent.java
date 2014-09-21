@@ -9,7 +9,13 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.Json.Serializable;
 import com.badlogic.gdx.utils.JsonValue;
 import com.corundumgames.Assets;
+import com.corundumgames.mach.systems.TextureRenderSystem;
 
+/**
+ * @see TextureRenderSystem
+ * @author jesse
+ *
+ */
 public class TextureComponent extends PooledComponent implements Serializable {
     public AtlasRegion region;
     public boolean visible;
