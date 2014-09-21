@@ -27,6 +27,7 @@ public class InGameScreen extends ScreenAdapter {
     private SoundSystem sounds;
     private TooltipRenderSystem tooltips;
     private CollisionSystem collision;
+    private MotionSystem motion;
 
     private AssetsManager assets;
     private CameraManager cameras;
@@ -68,6 +69,7 @@ public class InGameScreen extends ScreenAdapter {
     }
 
     private void initSystems() {
+        this.motion = this.world.setSystem(new MotionSystem(MachCycles.SPF));
         this.collision = this.world.setSystem(new CollisionSystem(MachCycles.SPF));
         this.animation = this.world.setSystem(new AnimationSystem(MachCycles.SPF));
         this.sounds = this.world.setSystem(new SoundSystem());
