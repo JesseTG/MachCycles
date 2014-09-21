@@ -11,7 +11,7 @@ import com.corundumgames.mach.events.DeathListener;
 
 public class ExpirationSystem extends DelayedEntityProcessingSystem implements DeathListener {
 
-    @Wire
+    @Wire()
     private ComponentMapper<ExpirationComponent> expirationMapper;
 
     @Wire

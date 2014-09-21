@@ -23,7 +23,6 @@ public class MotionSystem extends IntervalEntityProcessingSystem {
     public MotionSystem(float interval) {
         super(Aspect.getAspectForAll(CollisionComponent.class, VelocityComponent.class, TransformComponent.class),
                 interval);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
@@ -32,9 +31,9 @@ public class MotionSystem extends IntervalEntityProcessingSystem {
         VelocityComponent vc = velocityMapper.get(e);
         TransformComponent txc = transformMapper.get(e);
 
-        cc.rect.x += (vc.linear.x / this.acc);
-        cc.rect.y += (vc.linear.y / this.acc);
+        cc.rect.x += (vc.linear.x * this.acc);
+        cc.rect.y += (vc.linear.y * this.acc);
 
-        txc.transform.translate(vc.linear);
+        txc.transform.translate(vc.linear.x * this.acc, vc.linear.y * this.acc);
     }
 }
