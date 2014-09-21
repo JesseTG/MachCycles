@@ -31,9 +31,12 @@ public class MotionSystem extends IntervalEntityProcessingSystem {
         VelocityComponent vc = velocityMapper.get(e);
         TransformComponent txc = transformMapper.get(e);
 
-        cc.rect.x += (vc.linear.x * this.acc);
-        cc.rect.y += (vc.linear.y * this.acc);
+        vc.velocity.x += vc.acceleration.x * this.acc;
+        vc.velocity.y += vc.acceleration.y * this.acc;
 
-        txc.transform.translate(vc.linear.x * this.acc, vc.linear.y * this.acc);
+        cc.rect.x += vc.velocity.x * this.acc;
+        cc.rect.y += vc.velocity.y * this.acc;
+
+        txc.transform.trn(vc.velocity.x * this.acc, vc.velocity.y * this.acc);
     }
 }

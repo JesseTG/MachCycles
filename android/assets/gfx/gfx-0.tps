@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>libgdx</string>
         <key>textureFileName</key>
-        <filename></filename>
+        <filename>gfx-0.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -131,7 +131,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename></filename>
+                <filename>gfx-0.atlas</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -174,7 +174,7 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>./</filename>
+            <filename>main</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

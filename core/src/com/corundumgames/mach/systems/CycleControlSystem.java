@@ -7,6 +7,7 @@ import com.artemis.annotations.Wire;
 import com.artemis.systems.EntityProcessingSystem;
 import com.corundumgames.mach.components.CollisionComponent;
 import com.corundumgames.mach.components.MachComponent;
+import com.corundumgames.mach.components.TransformComponent;
 import com.corundumgames.mach.components.VelocityComponent;
 
 public class CycleControlSystem extends EntityProcessingSystem {
@@ -20,26 +21,34 @@ public class CycleControlSystem extends EntityProcessingSystem {
     @Wire
     private ComponentMapper<CollisionComponent> collisionMapper;
 
+    @Wire
+    private ComponentMapper<TransformComponent> transformMapper;
+
     public CycleControlSystem() {
-        super(Aspect.getAspectForAll(MachComponent.class, VelocityComponent.class, CollisionComponent.class));
+        super(Aspect.getAspectForAll(MachComponent.class, VelocityComponent.class, CollisionComponent.class,
+                TransformComponent.class));
     }
 
     @Override
     protected void process(Entity e) {
         MachComponent mc = machMapper.get(e);
         VelocityComponent vc = velocityMapper.get(e);
+        TransformComponent txc = transformMapper.get(e);
 
         switch (mc.action) {
             case TURN_LEFT: {
-                vc.linear.rotate90(1);
+                vc.velocity.rotate90(1);
+                vc.acceleration.rotate90(1);
+                txc.transform.rotate(90);
                 break;
             }
             case TURN_RIGHT: {
-                vc.linear.rotate90(-1);
+                vc.velocity.rotate90(-1);
+                vc.acceleration.rotate90(-1);
+                txc.transform.rotate(-90);
                 break;
             }
             case SPEED_UP_START: {
-                // hit the accelerator
                 break;
             }
             case SPEED_UP_STOP: {
@@ -57,7 +66,7 @@ public class CycleControlSystem extends EntityProcessingSystem {
             default:
                 break;
         }
-        
+
         mc.action = MachComponent.Action.NONE;
     }
 

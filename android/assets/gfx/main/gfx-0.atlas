@@ -1,0 +1,18 @@
+gfx-0.png
+format: RGBA4444
+filter: Nearest,Nearest
+repeat: none
+gfx-0
+  rotate: false
+  xy: 0, 0
+  size: 32, 14
+  orig: 32, 14
+  offset: 0, 0
+  index: -1
+mach
+  rotate: false
+  xy: 0, 0
+  size: 32, 14
+  orig: 32, 32
+  offset: 0, 9
+  index: -1

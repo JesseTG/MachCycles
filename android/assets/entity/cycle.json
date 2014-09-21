@@ -11,8 +11,14 @@
             "region" : "mach"
         },
         "VelocityComponent" : {
-            "x" : 48,
-            "y" : 0
+            "velocity" : {
+                "x" : 48,
+                "y" : 0
+            },
+            "acceleration" : {
+                "x" : 16,
+                "y" : 0
+            }
         },
         "MachComponent" : {
         },
