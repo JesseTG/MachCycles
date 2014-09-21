@@ -65,4 +65,5 @@ public class PlayerInputComponent extends PooledComponent implements Serializabl
     public void read(Json json, JsonValue jsonData) {
         // TODO: Implement
     }
+    
 }

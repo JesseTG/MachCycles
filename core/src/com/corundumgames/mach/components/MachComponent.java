@@ -1,6 +1,7 @@
 package com.corundumgames.mach.components;
 
 import com.artemis.PooledComponent;
+import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 
 /**
  * Given to any MACH Cycle, human or computer-controlled.
@@ -13,6 +14,10 @@ public class MachComponent extends PooledComponent {
      * {@link Action#NONE} whenever it's processed.
      */
     public Action action;
+    
+   /* MoveToAction a = new MoveToAction();
+    a.setPosition(x, y);*/
+    
 
     public MachComponent() {
         this.reset();

@@ -69,8 +69,9 @@ public class MachCycles extends Game {
 		this.gameCamera.setToOrtho(false, width, height);
 		this.guiCamera.setToOrtho(false, width, height);
 
-		this.gameCamera.viewportWidth = width;
-		this.gameCamera.viewportHeight = height;
+		this.gameCamera.viewportWidth = width / 32f;
+		this.gameCamera.viewportHeight = gameCamera.viewportWidth * height
+				/ width;
 		this.gameCamera.update();
 
 		this.guiCamera.viewportWidth = width;
