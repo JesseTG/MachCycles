@@ -43,7 +43,7 @@ public class InGameScreen extends ScreenAdapter {
     @Override
     public void show() {
         batch = new SpriteBatch();
-        img = new Texture("badlogic.jpg");
+        img = new Texture("img/badlogic.jpg");
         this.world = new World();
 
         this.initStaticFields(true);

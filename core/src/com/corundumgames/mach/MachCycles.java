@@ -3,6 +3,7 @@ package com.corundumgames.mach;
 import net.dermetfan.utils.libgdx.AnnotationAssetManager;
 
 import Screens.Splash;
+import Screens.MainMenu;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -15,7 +16,6 @@ import com.corundumgames.Assets;
 import com.corundumgames.JsonLoader;
 import com.corundumgames.entities.Entities;
 import com.corundumgames.mach.screens.InGameScreen;
-
 public class MachCycles extends Game {
     public static final int FPS = 60;
     public static final float SPF = 1.0f / FPS;
@@ -42,6 +42,8 @@ public class MachCycles extends Game {
 
         this.assets.finishLoading();
         Gdx.gl.glClearColor(0, 0, 0, 1);
+        this.setScreen(new Splash());
+        this.setScreen(new MainMenu());
         this.setScreen(new InGameScreen(this));
     }
 
