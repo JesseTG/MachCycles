@@ -1,6 +1,8 @@
 {
     "components" : {
         "CollisionComponent" : {
+            "width" : 8,
+            "height" : 8
         },
         "TransformComponent" : {
             
@@ -9,10 +11,12 @@
             "region" : "mach"
         },
         "VelocityComponent" : {
-            "x" : 1,
-            "y" : 1
+            "x" : 48,
+            "y" : 0
         },
         "MachComponent" : {
+        },
+        "PlayerInputComponent" : {
             
         }
     }
