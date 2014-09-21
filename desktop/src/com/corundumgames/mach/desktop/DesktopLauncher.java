@@ -17,7 +17,7 @@ public class DesktopLauncher {
         config.height = 600;
         config.foregroundFPS = MachCycles.FPS;
         config.backgroundFPS = MachCycles.FPS / 3;
-        new LwjglApplication(new SurfaceMap(), config);
+        new LwjglApplication(new MachCycles(), config);
         
     }
 }
