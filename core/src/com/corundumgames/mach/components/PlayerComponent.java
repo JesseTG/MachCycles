@@ -7,8 +7,6 @@ import com.badlogic.gdx.utils.JsonValue;
 
 public class PlayerComponent extends PooledComponent implements Serializable {
     public long score;
-    public int lives;
-    public int bombs;
     public int multiplier;
 
     public PlayerComponent() {
@@ -18,8 +16,6 @@ public class PlayerComponent extends PooledComponent implements Serializable {
     @Override
     public void reset() {
         this.score = 0;
-        this.lives = 0;
-        this.bombs = 0;
         this.multiplier = 1;
     }
 
@@ -29,8 +25,6 @@ public class PlayerComponent extends PooledComponent implements Serializable {
     @Override
     public void read(Json json, JsonValue jsonData) {
         this.score = jsonData.getLong("score", 0);
-        this.lives = jsonData.getInt("lives", 0);
-        this.bombs = jsonData.getInt("bombs", 0);
         this.multiplier = jsonData.getInt("multiplier", 1);
     }
 }

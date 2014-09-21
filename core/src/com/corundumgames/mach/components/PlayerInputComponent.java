@@ -23,15 +23,10 @@ public class PlayerInputComponent extends PooledComponent implements Serializabl
     /**
      * Set of all key and button codes that will make the player go up
      */
-    public IntArray up;
-    public IntArray down;
+    public IntArray speedUp;
+    public IntArray slowDown;
     public IntArray left;
     public IntArray right;
-    public IntArray bomb;
-    public int leftBeam;
-    public int rightBeam;
-    public int pointer;
-    public float targetSpeed;
     public boolean canMove;
 
     public PlayerInputComponent() {
@@ -40,19 +35,14 @@ public class PlayerInputComponent extends PooledComponent implements Serializabl
 
     @Override
     public void reset() {
-        this.up = IntArray.with(Keys.UP, Keys.W, Keys.DPAD_UP);
-        this.down = IntArray.with(Keys.DOWN, Keys.S, Keys.DPAD_DOWN);
+        this.speedUp = IntArray.with(Keys.UP, Keys.W, Keys.DPAD_UP);
+        this.slowDown = IntArray.with(Keys.DOWN, Keys.S, Keys.DPAD_DOWN);
         this.left = IntArray.with(Keys.LEFT, Keys.A, Keys.DPAD_LEFT);
         this.right = IntArray.with(Keys.RIGHT, Keys.D, Keys.DPAD_RIGHT);
-        this.bomb = IntArray.with(Keys.SPACE);
         Array<Controller> controllers = Controllers.getControllers();
         if (controllers != null && controllers.size > 0) {
             this.controller = controllers.get(0);
         }
-        this.leftBeam = Buttons.LEFT;
-        this.rightBeam = Buttons.RIGHT;
-        this.pointer = 0;
-        this.targetSpeed = 10;
         this.canMove = true;
     }
 
