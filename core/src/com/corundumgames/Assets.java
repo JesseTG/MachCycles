@@ -1,5 +1,7 @@
 package com.corundumgames;
 
+import net.dermetfan.utils.libgdx.AnnotationAssetManager.Asset;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetManager;
@@ -36,11 +38,19 @@ public final class Assets {
     public static final SoundParameter SOUND_PARAMETER = new SoundParameter();
     public static final TextureParameter TEXTURE_PARAMETER = new TextureParameter();
 
+    /*
+     * To add in new assets, create a new AssetDescriptor that holds the path to
+     * the asset, the class object that describes the asset type, and a
+     * parameter of some sort. Then add an @Asset annotation. The
+     * AnnotationAssetManager in MachCycles will take care of the rest.
+     */
+    
+    @Asset
     public static final AssetDescriptor<TextureAtlas> ATLAS =
             new AssetDescriptor<TextureAtlas>(ATLAS_PATH, TextureAtlas.class, ATLAS_PARAMETER);
 
     public static final AssetDescriptor<I18NBundle> TEXT =
-            new AssetDescriptor<I18NBundle>("", I18NBundle.class, I18N_PARAMETER);
+            new AssetDescriptor<I18NBundle>("text/text", I18NBundle.class, I18N_PARAMETER);
 
     public static final LoadedCallback ON_LOADED = new LoadedCallback()
     {
