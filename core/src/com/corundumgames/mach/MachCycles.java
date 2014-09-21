@@ -21,62 +21,73 @@ import com.corundumgames.mach.screens.InGameScreen;
 
 public class MachCycles extends Game {
 
-    public static final int FPS = 60;
-    public static final float SPF = 1.0f / FPS;
-    
-    private TiledMap map;
+	public static final int FPS = 60;
+	public static final float SPF = 1.0f / FPS;
+
+	private TiledMap map;
 	private OrthogonalTiledMapRenderer renderer;
 
-    public AnnotationAssetManager assets;
-    // This is dirty, I should work around it
+	public AnnotationAssetManager assets;
+	// This is dirty, I should work around it
 
-    public OrthographicCamera gameCamera;
-    public OrthographicCamera guiCamera;
-    public SpriteBatch batch;
-    public ShaderProgram shader;
+	public OrthographicCamera gameCamera;
+	public OrthographicCamera guiCamera;
+	public SpriteBatch batch;
+	public ShaderProgram shader;
 
-    @Override
-    public void create() {
-        this.assets = new AnnotationAssetManager();
-        this.assets.setLoader(JsonValue.class, new JsonLoader(new InternalFileHandleResolver()));
-        this.assets.load(Assets.class);
+	@Override
+	public void create() {
+		this.assets = new AnnotationAssetManager();
+		this.assets.setLoader(JsonValue.class, new JsonLoader(
+				new InternalFileHandleResolver()));
+		this.assets.load(Assets.class);
 
-        this.shader = SpriteBatch.createDefaultShader();
-        this.batch = new SpriteBatch(1000, this.shader);
-        this.gameCamera = new OrthographicCamera();
-        this.guiCamera = new OrthographicCamera();
-        Entities.setAssetManager(this.assets);
-        
+		this.shader = SpriteBatch.createDefaultShader();
+		this.batch = new SpriteBatch(1000, this.shader);
+		this.gameCamera = new OrthographicCamera();
+		this.guiCamera = new OrthographicCamera();
+		Entities.setAssetManager(this.assets);
 
-        this.assets.finishLoading();
-        Gdx.gl.glClearColor(0, 0, 0, 1);
-        this.setScreen(new InGameScreen(this));
-        
-        setScreen(new Play());
-    }
-    
+		this.assets.finishLoading();
+		Gdx.gl.glClearColor(0, 0, 0, 1);
+		this.setScreen(new InGameScreen(this));
 
+		setScreen(new Play());
+	}
 
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+		renderer.setView(gameCamera);
+		renderer.setView(guiCamera);
 		renderer.render();
 	}
-    
-    @Override
-    public void resize(int width, int height) {
-        this.gameCamera.setToOrtho(false, width, height);
-        this.guiCamera.setToOrtho(false, width, height);
-    }
-    
-    public void show() {
-		map = new TmxMapLoader().load("ground.tmx");
+
+	@Override
+	public void resize(int width, int height) {
+		this.gameCamera.setToOrtho(false, width, height);
+		this.guiCamera.setToOrtho(false, width, height);
+
+		this.gameCamera.viewportWidth = width;
+		this.gameCamera.viewportHeight = height;
+		this.gameCamera.update();
+
+		this.guiCamera.viewportWidth = width;
+		this.guiCamera.viewportHeight = height;
+		this.guiCamera.update();
+	}
+
+	public void show() {
+		map = new TmxMapLoader().load("tronbggrid.tmx");
 
 		renderer = new OrthogonalTiledMapRenderer(map);
+
+		gameCamera = new OrthographicCamera();
+		guiCamera = new OrthographicCamera();
 	}
-    
-    public void hide() {
+
+	public void hide() {
 		// TODO Auto-generated method stub
 
 	}
@@ -92,9 +103,8 @@ public class MachCycles extends Game {
 		// TODO Auto-generated method stub
 
 	}
-    
-    /*@Override
-	public void dispose() {
-		dispose();
-	}*/
+
+	/*
+	 * @Override public void dispose() { dispose(); }
+	 */
 }

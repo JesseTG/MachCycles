@@ -32,7 +32,7 @@ public class Play implements Screen {
 	@Override
 	public void show() {
 		
-		map = new TmxMapLoader().load("groundmap.tmx");
+		map = new TmxMapLoader().load("tronbggrid.tmx");
 		
 		renderer = new OrthogonalTiledMapRenderer(map);
 
