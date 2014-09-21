@@ -1,5 +1,7 @@
 package com.corundumgames;
 
+import net.dermetfan.utils.libgdx.AnnotationAssetManager.Asset;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetManager;
@@ -36,6 +38,7 @@ public final class Assets {
     public static final SoundParameter SOUND_PARAMETER = new SoundParameter();
     public static final TextureParameter TEXTURE_PARAMETER = new TextureParameter();
 
+    @Asset
     public static final AssetDescriptor<TextureAtlas> ATLAS =
             new AssetDescriptor<TextureAtlas>(ATLAS_PATH, TextureAtlas.class, ATLAS_PARAMETER);
 

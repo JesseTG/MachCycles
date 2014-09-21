@@ -14,19 +14,19 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class MainMenu implements Screen {
-    private Stage stage = new Stage();
-    private Table table = new Table();
-
-    private Skin skin = new Skin(Gdx.files.internal("packageSkin/uiskin.json"),
-            new TextureAtlas(Gdx.files.internal("packageSkin/uiskin.atlas")));
-
-    private TextButton buttonPlay = new TextButton("default-slider", skin), buttonExit = new TextButton(
-            "default-slider", skin);
-    private Label title = new Label("Mach Cycles", skin);
-
-    @Override
-    public void render(float delta) {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+	   private Stage stage = new Stage();
+	   private Table table = new Table();
+	   
+	   private Skin skin = new Skin(Gdx.files.internal("packageSkin/uiskin.json"),
+	               new TextureAtlas(Gdx.files.internal("packageSkin/uiskin.atlas")));
+	   
+	   private TextButton buttonPlay = new TextButton("default-slider", skin), buttonExit = new TextButton(
+	               "default-slider", skin);
+	       private Label title = new Label("Mach Cycles", skin);
+	   
+	       @Override
+	   public void render(float delta) {
+	           Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act();
         stage.draw();
@@ -41,15 +41,15 @@ public class MainMenu implements Screen {
 
     @Override
     public void show() {
-        stage.setDebugAll(true);
-        table.add(buttonPlay).size(150, 60).padBottom(20).row();
-        table.add(buttonExit).size(150, 60).padBottom(20).row();
-
-        table.setFillParent(true);
-        stage.addActor(table);
-        Gdx.input.setInputProcessor(stage);
-        buttonPlay.addListener(new ClickListener()
-        {
+    	 stage.setDebugAll(true);
+    	 table.add(buttonPlay).size(150, 60).padBottom(20).row();
+    	 table.add(buttonExit).size(150, 60).padBottom(20).row();
+    	
+    	 table.setFillParent(true);
+    	 stage.addActor(table);
+    	 Gdx.input.setInputProcessor(stage);
+    	 buttonPlay.addListener(new ClickListener()
+    	 {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 ((Game)Gdx.app.getApplicationListener()).setScreen(new Splash());
